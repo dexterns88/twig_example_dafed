@@ -1,0 +1,31 @@
+
+{% filter upper|raw %}
+  <p>upper case</p>
+{% endfilter %}
+
+{% filter upper %}
+  <p>ovo je drugi upper case bez filter raw</p>
+{% endfilter %}
+
+<article class="about-section">
+  
+  <hr>
+  
+  <header>
+    {% block head %}
+      <p>ovo je default head od about section</p>
+    {% endblock %}
+  </header>
+  
+  <hr>
+  
+  <div class="article-content">
+    {% block content %}
+      <p>this is default article content</p>
+    {% endblock %}
+  </div>
+  
+  <hr>
+  
+</article>
+

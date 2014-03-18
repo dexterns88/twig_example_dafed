@@ -1,0 +1,89 @@
+<h2>Macro form</h2>
+
+<form>
+  
+  {% import "macro.twig" as forms %}
+
+  {% 
+    set param = {
+      label: 'Ukucajte ime: ',
+      size: 30,
+      class: 'pera',
+      placeholder: 'steva',
+      after: "<p>Ovo je description</p>"
+    }
+  %}
+  {{ forms.input('username' , 'text' , param ) }}
+
+
+  {% set param = { label:"Password:" , placeholder: "Enter password here" } %}
+  {{ forms.input( 'password' , 'password' , param ) }}
+
+  {% set param = { size: 30 , label: "Enter your email: " } %}
+  {{ forms.input( 'E-mai:' , 'email' , param ) }}
+  
+<!-- select ============================================================================== -->
+{# select 1 #}
+  {%
+    set param = {
+      values : {
+        1:'value',
+        2:'steva',
+        3:'goran'
+      },
+      label : 'Izaberi kandidata: ',
+      class : 'custom-class',
+      fieldId: 'id_select'
+    }
+  %}
+
+  {{ forms.select( 'stevaselect', param ) }}
+
+
+{# select 2 #}
+  {{ forms.select( 'test2', { values: { 1:'new jork', 2:'novi sad', 3:'tampa' }, label : 'label: ', class : 'class-custom' } ) }}
+
+  
+  {# form radio #}
+
+
+  <div class="form-item">
+    
+    {%
+      set param = {
+        class: 'dex' , 
+        checked: true,
+        fieldclass: 'filedklasa',
+        value: 'value dex',
+        label: 'label',
+        fieldId: 'id-filda'
+      }
+    %}
+
+    {{ forms.checkfield( 'test' , 'radio' , param ) }}
+    {{ forms.checkfield( 'test' , 'radio' , { value: 'gox' , labelBefore: 'gox' }  ) }}
+    {{ forms.checkfield( 'test' , 'radio' , { value: 'steva' , labelBefore: 'steva' , checked: true } ) }}
+  </div>
+  
+  <div class="form-item">
+    {{ forms.checkfield( 'test2' , 'checkbox' , { value: 'select' , labelBefore: 'select' } ) }}
+    {{ forms.checkfield( 'test2' , 'checkbox' , { value: 'select2' , labelBefore: 'select2' } ) }}
+  </div>
+  
+  {#
+    name , type , value , label , checked , class , fieldclass
+  #}
+  
+  <div class="form-item">
+    {{ forms.checkfield( 'imena[]' , 'checkbox' , { value: 'goran' , labelAfter: 'dexChit' } ) }}
+  
+    {{ forms.checkfield( 'imena[]' , 'checkbox' , { value: 'steva' } ) }}
+    {{ forms.checkfield( 'imena[]' , 'checkbox' , { value: 'bole' } ) }}
+    {{ forms.checkfield( 'imena[]' , 'checkbox' , { value: 'dex' } ) }}
+    {{ forms.checkfield( 'imena[]' , 'checkbox' , { value: 'dekisha' } ) }}
+  
+  </div>
+  
+  {{ forms.submit( 'send' , 'submit' , 'send' ) }}
+  
+</form>

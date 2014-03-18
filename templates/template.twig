@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content="uvod u twig template engine" />
+    <meta name="keywords" content="daffed , twig" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>{{ title }}</title>
+    
+    <link rel='stylesheet' href='stylesheets/albatross_api.css' />
+
+    
+  </head>
+  <body>
+    
+    <header>
+      {% include 'include/header.twig' %}   {# uvozi template ako postoji bez ikakve greske ako fajl nije dostupan #}
+      
+
+      
+    </header>
+    
+    {{ message }}
+    
+    <div class="region-content page-holder">
+      {{ content|raw }}
+    </div>
+    
+    <footer>
+      <p> Daffed @august 2013 - Twig template engine</p>
+    </footer>
+    
+    
+  </body>
+</html>

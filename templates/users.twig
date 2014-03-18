@@ -1,0 +1,14 @@
+
+{# prvo ide array koji dolazi iz backenda suprotno od php-a #}
+
+<div class="user-listing">
+  
+  {% for korisnik in korisnici %}
+    <div class="user-item">
+      <p><strong>User name: </strong> {{ korisnik.user }} </p>
+      <p><strong>First name: </strong> {{ korisnik.ime }} </p>
+    </div>
+    <hr/>
+  {% endfor %}
+
+</div>
